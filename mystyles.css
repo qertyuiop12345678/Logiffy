@@ -1,0 +1,95 @@
+body {
+    background-color: rgb(49, 45, 45);
+    background-image: url(https://media4.giphy.com/media/xT4uQB3ugjlDMGblle/giphy.gif?cid=ecf05e474ce4a14acf15847866837d11ebeb4947a61ae4be&rid=giphy.gif);
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+
+input {
+    font-size:19px;
+}
+
+
+h1 {
+    position: relative;
+    display: block;
+    margin: 75px auto;
+    padding: 16px 20px;
+    width: fit-content;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+span {
+    position: relative;
+    display: block;
+    margin: 25px auto;
+    padding: 50px 100px;
+    width: fit-content;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+
+input {
+    position: relative;
+    display: block;
+    margin: 50px auto;
+    width: 35%;
+    padding: 16px 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(41, 37, 37);
+    color: white;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border-color: white;
+}
+
+input:hover {
+    background-color: rgb(31, 27, 27);
+}
+
+
+button {
+    background-color: #1248bd;
+    border: none;
+    color: white;
+    padding: 16px 100px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+
+    display: block;
+    margin: 59px auto;
+    font-family: cursive;
+    color: white;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
+button {
+    background-color: #1248bd;
+    border: none;
+    color: white;
+    padding: 5px 100px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+
+    display: block;
+    font-family: cursive;
+    color: white;
+}
