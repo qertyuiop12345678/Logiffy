@@ -1,8 +1,8 @@
 <?php
-$servername = "sql307.byethost22.com";
-$username = "b22_27400114";
-$password = "zall0121";
-$dbname = "b22_27400114_CookieLogger";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
 $id = $_REQUEST['id'] ;
 
 // Create connection
