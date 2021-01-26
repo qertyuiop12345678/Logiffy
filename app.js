@@ -20,7 +20,7 @@ create_btn.addEventListener("click", async function(event) {
     await data
 
     if (data) {
-        webhook_box.value = 'Javascript:$.get("'+data+'");';
+        webhook_box.value = data;
     }
 });
 
